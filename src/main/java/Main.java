@@ -15,6 +15,7 @@ public class Main {
         switch (args[0].toLowerCase()) {
             case "add" -> {
                 if (args.length != 2) {
+                    System.out.println("Usage: add <task description>");
                     return;
                 }
 
@@ -24,6 +25,7 @@ public class Main {
 
             case "update" -> {
                 if (args.length != 3) {
+                    System.out.println("Usage: update <task id> <task description>");
                     return;
                 }
                 taskManager.updateTask(Integer.parseInt(args[1]), args[2]);
@@ -32,6 +34,7 @@ public class Main {
 
             case "delete" -> {
                 if (args.length != 2) {
+                    System.out.println("Usage: delete <task id>");
                     return;
                 }
                 taskManager.deleteTask(Integer.parseInt(args[1]));
@@ -39,6 +42,7 @@ public class Main {
 
             case "mark-in-progress" -> {
                 if (args.length != 2) {
+                    System.out.println("Usage: mark-in-progress <task id>");
                     return;
                 }
                 taskManager.markInProgress(Integer.parseInt(args[1]));
@@ -46,6 +50,7 @@ public class Main {
 
             case "mark-done" -> {
                 if (args.length != 2) {
+                    System.out.println("Usage: mark-done <task id>");
                     return;
                 }
                 taskManager.markDone(Integer.parseInt(args[1]));
@@ -54,6 +59,8 @@ public class Main {
             case "list" -> {
 
                 if (args.length > 2) {
+                    System.out.println("Usage: list 'status' done | todo | in-progress ");
+
                     return;
                 }
                 if (args.length == 2) {
@@ -72,7 +79,7 @@ public class Main {
                 }
                 taskManager.listTasks();
             }
-            default -> System.out.println("Unknown command.");
+            default -> System.out.println("' " + args[0] + "'" + "Unknown command.");
         }
     }
 }
